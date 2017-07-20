@@ -30,6 +30,20 @@ public class CdServiceDBImpl implements CdService {
     }
 
     @Override
+    public String deleteAllCds() {
+        Query query=manager.createQuery("Delete FROM Cd");
+        query.executeUpdate();
+        return "{\"message\": \"all cds sucessfully deleted\"}";
+    }
+
+    @Override
+    public String getCd(Long id) {
+        Query query = manager.createQuery("Select m FROM Cd m where m.id=:id").setParameter("id",id);
+        Collection<Cd> cds = (Collection<Cd>) query.getResultList();
+        return util.getJSONForObject(cds);
+    }
+
+    @Override
     public String createCd(String cd) {
         Cd aCd = util.getObjectForJSON(cd, Cd.class);
         manager.persist(aCd);
@@ -40,6 +54,7 @@ public class CdServiceDBImpl implements CdService {
     public String updateCd(Long id, String cd) {
         Cd updatedCd = util.getObjectForJSON(cd, Cd.class);
         Cd cdInDB = findCd(id);
+        updatedCd.setId(id);
         if (cdInDB != null) {
             cdInDB = updatedCd;
             manager.merge(cdInDB);
