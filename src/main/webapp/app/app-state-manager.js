@@ -14,6 +14,9 @@
         }).state("addcd", {
             url: "/addcd",
             templateUrl: "app/feature/cd/add-cd/add-cd.html"
+        }).state("deletecd", {
+            url: "/deletecd",
+            templateUrl: "app/feature/cd/delete-cd/delete-cd.html"
         })
     });
 }());
