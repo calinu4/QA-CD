@@ -1,0 +1,15 @@
+<div ng-controller="addMovieController as ctrl">
+    <h1>Add a new movie</h1>
+
+    <form role="form">
+
+        <input id="artist" placeholder="artist" ng-model="movie.artist">
+
+        <input id="genre" placeholder="genre" ng-model="movie.genre">
+
+        <input id="title" placeholder="title" ng-model="movie.title">
+
+        <button type="submit" ng-click="ctrl.addMovie(movie)">addMovie</button>
+
+    </form>
+</div>
