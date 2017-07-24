@@ -1,0 +1,15 @@
+<div ng-controller="addCdController as ctrl">
+    <h1>Add a new CD</h1>
+
+    <form role="form">
+
+        <input id="artist" placeholder="artist" ng-model="cd.artist">
+
+        <input id="genre" placeholder="genre" ng-model="cd.genre">
+
+        <input id="title" placeholder="title" ng-model="cd.title">
+
+        <button type="submit" ng-click="ctrl.addCd(cd)">Add CD</button>
+
+    </form>
+</div>

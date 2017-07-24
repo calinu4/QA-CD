@@ -1,0 +1,22 @@
+"use strict";
+
+(function () {
+
+    angular.module('cd').config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/dashboard");
+
+        $stateProvider.state("dashboard", {
+            url: "/dashboard",
+            templateUrl: "app/feature/dashboard/dashboard.html"
+        }).state("getcd", {
+            url: "/getcd",
+            templateUrl: "app/feature/cd/get-cd/get-cd.html"
+        }).state("addcd", {
+            url: "/addcd",
+            templateUrl: "app/feature/cd/add-cd/add-cd.html"
+        }).state("deletecd", {
+            url: "/deletecd",
+            templateUrl: "app/feature/cd/delete-cd/delete-cd.html"
+        })
+    });
+}());
